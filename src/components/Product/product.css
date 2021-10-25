@@ -63,22 +63,6 @@ body {
 
 /* Typography */
 
-h1 {
-  font-size: 28px;
-  font-weight: 300;
-  flex: 1;
-}
-
-h5 {
-  font-weight: 500;
-  line-height: 1.7em;
-}
-
-h6 {
-  color: #666;
-  font-size: 14px;
-}
-
 /* Product Layout */
 
 .product-filter {

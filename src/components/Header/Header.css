@@ -113,17 +113,6 @@ label {
   flex-wrap: wrap;
 }
 
-.product-card {
-  display: flex;
-  flex-direction: column;
-
-  padding: 2%;
-  flex: 1 28%;
-
-  background-color: #fff;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
-}
-
 .product-image img {
   width: 100%;
 }
