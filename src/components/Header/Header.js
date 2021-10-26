@@ -1,3 +1,4 @@
+import "./Header.css";
 import Products from "../Products/Products";
 
 function Header() {

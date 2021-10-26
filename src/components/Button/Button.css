@@ -1,0 +1,21 @@
+.showAndHide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px;
+}
+button.button {
+  font-size: 25px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 6px 7px 8px 0px #ccc;
+}
+button.button:hover {
+  box-shadow: 6px 7px 8px 3px #b2b2b2fc;
+}
+.title {
+  margin: 25px;
+  font-size: 25px;
+}
