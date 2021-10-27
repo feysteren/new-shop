@@ -1,7 +1,5 @@
 //Instead of
-import React from "r"@babel/runtime": "7.0.0-beta.55"
-
-eact";
+import React from "react";
 
 import ReactDOM from "react-dom";
 import "./index.css";
