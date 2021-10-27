@@ -1,3 +1,4 @@
+import "./Products";
 import Product from "../Product/Product";
 
 /*
