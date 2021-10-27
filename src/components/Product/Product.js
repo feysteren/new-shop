@@ -6,7 +6,7 @@ function Product({ id, title, image, price }) {
       <div className="product-image">
         <img src={image} />
       </div>
-      <div className="product-info">
+      <div className="product-info" placeholder="">
         <h5>{title}</h5>
         <h6>{price}</h6>
       </div>
