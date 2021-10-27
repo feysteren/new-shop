@@ -11,7 +11,9 @@ console.log(Products);
 
 function Products({ productDetails }) {
   return productDetails.map(({ id, title, image, price }) => (
-    <Product key={id} id={id} title={title} image={image} price={price} />
+    <section className="prodouts">
+      <Product key={id} id={id} title={title} image={image} price={price} />
+    </section>
   ));
 }
 
