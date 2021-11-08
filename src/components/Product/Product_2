@@ -1,0 +1,99 @@
+import { map } from "async";
+import React, { useState, useContext } from "react";
+import { getTTFB } from "web-vitals";
+import CartContext from "../../CartContext";
+import Products from "../Products/Products";
+import "./Product.css";
+
+function Product({ id, title, image, price, isCart }) {
+  const { cart, setCart } = useContext(CartContext);
+  const countCart = function () {};
+  const my_id = cart.filter((c) => {
+    return c.id == id;
+  });
+
+  let my_qt = 0;
+  if (my_id.length > 0) {
+    my_qt = my_id[0].qt;
+  }
+
+  function incrementCount() {
+    if (count > 0) {
+      setCount(count + 1);
+
+      setCart((cart) => {
+        for (let x in cart) {
+          if (cart[x].id === id) {
+            cart[x].qt = count + 1;
+          }
+        }
+
+        return [...cart];
+      });
+    } else if (count == 0) {
+      setCount(1);
+      setCart((cart) => {
+        return [...cart, { id, image, title, price, qt: 1 }];
+      });
+    }
+  }
+
+  const [count, setCount] = useState(function () {
+    if (isCart) {
+      return my_qt;
+    } else {
+      return 0;
+    }
+  });
+
+  // [{id: 1, title: "watch"}, {id: 3, title: "bag"}]
+  function decrementCount() {
+    if (count > 0) {
+      setCount(count - 1);
+
+      setCart((cart) => {
+        for (let x in cart) {
+          if (cart[x].id === id) {
+            cart[x].qt = count - 1;
+          }
+        }
+
+        if (count - 1 > 0) {
+          return [...cart];
+        } else {
+          return [];
+        }
+
+        // const index = cart.findIndex((item) => item.id === id);
+        // const arry = [...cart];
+        // arry.splice(index, 1);
+        // return arry;
+      });
+    }
+  }
+
+  return (
+    <div className="product-card">
+      <div className="product-image">
+        <p>{isCart}</p>
+        <img src={image} />
+      </div>
+      <div className="product-info">
+        <h5>{title}</h5>
+        <h6>{price}</h6>
+      </div>
+
+      <div className="counterButton">
+        <button onClick={incrementCount}>+</button>
+        <span>{isCart ? my_qt : count}</span>
+        <button onClick={decrementCount}>-</button>
+      </div>
+    </div>
+  );
+}
+
+Product.defaultProps = {
+  isCart: false,
+};
+
+export default Product;

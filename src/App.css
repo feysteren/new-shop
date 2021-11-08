@@ -141,10 +141,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 /*------------------------------------*\
-      $MAIN
-    \*------------------------------------*/
+  $MAIN
+\*------------------------------------*/
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
 
@@ -157,3 +156,25 @@ body {
 }
 
 /* Typography */
+
+h1 {
+  font-size: 28px;
+  font-weight: 300;
+  flex: 1;
+}
+
+h5 {
+  font-weight: 500;
+  line-height: 1.7em;
+}
+
+h6 {
+  color: #666;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    margin-bottom: 20px;
+  }
+}

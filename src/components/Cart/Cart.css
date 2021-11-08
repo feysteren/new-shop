@@ -1,0 +1,8 @@
+.cart {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 250px;
+  padding: 15px;
+  background: #fff;
+}
