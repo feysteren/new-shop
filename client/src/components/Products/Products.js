@@ -1,17 +1,17 @@
 import "./Products.css";
 import Product from "../Product/Product";
+import { Link } from "react-router-dom";
 
-function Products({ productDetails, categories, cart }) {
+function Products({ pDetails, categories, cart, id }) {
   return (
     <section className="products">
-      {productDetails.map((product) => (
+      {pDetails.map(({ _id: id, title, image, price }) => (
         <Product
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          image={product.image}
-          price={product.price}
-
+          id={id}
+          title={title}
+          image={image}
+          price={price}
+          key={id}
           // productDetails={cart}
         />
       ))}
