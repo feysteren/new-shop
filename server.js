@@ -145,7 +145,7 @@ const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
 mongoose.connect(
   `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`,
   () => {
-    app.listen(process.env.PORT || 8080);
+    app.listen(process.env.PORT || 8000);
     initProducts();
   }
 );
