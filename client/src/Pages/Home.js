@@ -18,7 +18,7 @@ function Home() {
   const initProducts = useRef([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/products")
+    fetch("http://localhost:8090/products")
       .then(function (response) {
         return response.json();
       })
