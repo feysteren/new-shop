@@ -5,12 +5,12 @@ import fetch from "node-fetch";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static("client/build"));
 
 const Product = mongoose.model("Product", {
   title: String,
@@ -20,13 +20,13 @@ const Product = mongoose.model("Product", {
   description: String,
 });
 
-app.get("/products", async (req, res) => {
+app.get("/api/products", async (req, res) => {
   const product = await Product.find();
 
   res.send(product);
 });
 
-app.get("/products/:id", async (req, res) => {
+app.get("/api/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
   res.send(product);
@@ -72,7 +72,7 @@ app.get("/products/:id", async (req, res) => {
 //   await writeFile("./products.json", JSON.stringify(products));
 //   res.send(newProduct);
 // });
-app.post("/products", async (req, res) => {
+app.post("/api/products", async (req, res) => {
   const { title, price, description, category, image } = req.body;
 
   const product = new Product({
@@ -133,11 +133,15 @@ app.delete("/products/:id", async (req, res) => {
   res.send("the product is delete");
 });
 
-app.put("/products/:id", async (req, res) => {
+app.put("/api/products/:id", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   const product = await Product.findByIdAndUpdate(id, body);
   res.send(product);
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/client/build/index.html");
 });
 
 const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
@@ -145,7 +149,7 @@ const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
 mongoose.connect(
   `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`,
   () => {
-    app.listen(process.env.PORT || 8090);
+    app.listen(process.env.PORT || 8080);
     initProducts();
   }
 );

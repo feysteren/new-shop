@@ -49,7 +49,7 @@ function Product({ id, title, image, price }) {
   return (
     <div className="product-card">
       <div className="product-image">
-        <Link to={`/ProductDetails/${id}`}>
+        <Link to={`/Products/${id}`}>
           <img src={image} alt="" />
         </Link>
       </div>

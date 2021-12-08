@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import { useState, useEffect, useRef } from "react";
-import "./Home.css";
 
 import Header from "../components/Header/Header";
 import Products from "../components/Products/Products";
@@ -18,7 +17,7 @@ function Home() {
   const initProducts = useRef([]);
 
   useEffect(() => {
-    fetch("http://localhost:8090/products")
+    fetch("/api/products")
       .then(function (response) {
         return response.json();
       })
@@ -52,7 +51,7 @@ function Home() {
         <Cart />
       </CartContext.Provider>
       <Routes>
-        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+        <Route path="/Products/:id" element={<ProductDetails />} />
       </Routes>
     </>
   );
